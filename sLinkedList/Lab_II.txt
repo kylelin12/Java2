@@ -1,0 +1,41 @@
+Due: Monday 3/13
+
+Implement and test each of the following SLinkedList class methods.
+
+
+1. Write the method append(SLinkedList L) that concatenates two lists.
+
+       Here's an example, 
+       S = [ a,b]
+       M = [ c,d,e]
+       S.append(M) -> [a,b,c,d,e]
+       M.append(S) -> [c,d,e,a,b]
+       Neither S nor M should be modified (no side effects). 
+
+2. Write the method getNode(int index) to return the node at the index
+   position. This function should return an IndexOutOfBoundsException
+   whenenver index < 0 or index >= size().
+
+   // postcondition: returns the node at the index position
+   public Node getNode(int index){}
+
+3. Write the method swap(Node x, Node y) that swaps the nodes (not just
+   the values) x and y.
+
+   Hint: Attach a dummy node to the head of the list so that
+         each node has a preceding node thereby eliminating
+	 a special case.
+           ex. Node prevX = new Node(null,_head);
+
+   // precondition: x and y refer to Nodes in the list
+    // postcondition: swaps the nodes (not the just the values)
+    public void swap(Node x, Node y){ }
+
+4. Write a recursive reverse() method that reverses the nodes (not just the
+   values) of a list in O(n) time without destroying or copying a node.
+ 
+
+   Here's an example:
+    L = [ c,a,t]
+    After L.reverse(), L becomes [ t,a,c].
+        

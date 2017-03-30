@@ -1,0 +1,35 @@
+[]size: 0 capacity: 1 % full: 0.0
+push: 0 [0]size: 1 capacity: 1 % full: 1.0
+push: 1 [0, 1]size: 2 capacity: 2 % full: 1.0
+push: 2 [0, 1, 2]size: 3 capacity: 4 % full: 0.75
+push: 3 [0, 1, 2, 3]size: 4 capacity: 4 % full: 1.0
+push: 4 [0, 1, 2, 3, 4]size: 5 capacity: 8 % full: 0.625
+push: 5 [0, 1, 2, 3, 4, 5]size: 6 capacity: 8 % full: 0.75
+push: 6 [0, 1, 2, 3, 4, 5, 6]size: 7 capacity: 8 % full: 0.875
+push: 7 [0, 1, 2, 3, 4, 5, 6, 7]size: 8 capacity: 8 % full: 1.0
+push: 8 [0, 1, 2, 3, 4, 5, 6, 7, 8]size: 9 capacity: 16 % full: 0.5625
+push: 9 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]size: 10 capacity: 16 % full: 0.625
+push: 10 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]size: 11 capacity: 16 % full: 0.6875
+push: 11 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]size: 12 capacity: 16 % full: 0.75
+push: 12 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]size: 13 capacity: 16 % full: 0.8125
+push: 13 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]size: 14 capacity: 16 % full: 0.875
+push: 14 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]size: 15 capacity: 16 % full: 0.9375
+push: 15 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]size: 16 capacity: 16 % full: 1.0
+peek: 15
+**************START POPPING**************
+pop: 15 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]size: 15 capacity: 16 % full: 0.9375
+pop: 14 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]size: 14 capacity: 16 % full: 0.875
+pop: 13 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]size: 13 capacity: 16 % full: 0.8125
+pop: 12 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]size: 12 capacity: 16 % full: 0.75
+pop: 11 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]size: 11 capacity: 16 % full: 0.6875
+pop: 10 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]size: 10 capacity: 16 % full: 0.625
+pop: 9 [0, 1, 2, 3, 4, 5, 6, 7, 8]size: 9 capacity: 16 % full: 0.5625
+pop: 8 [0, 1, 2, 3, 4, 5, 6, 7]size: 8 capacity: 16 % full: 0.5
+pop: 7 [0, 1, 2, 3, 4, 5, 6]size: 7 capacity: 16 % full: 0.4375
+pop: 6 [0, 1, 2, 3, 4, 5]size: 6 capacity: 8 % full: 0.75
+pop: 5 [0, 1, 2, 3, 4]size: 5 capacity: 8 % full: 0.625
+pop: 4 [0, 1, 2, 3]size: 4 capacity: 8 % full: 0.5
+pop: 3 [0, 1, 2]size: 3 capacity: 4 % full: 0.75
+pop: 2 [0, 1]size: 2 capacity: 4 % full: 0.5
+pop: 1 [0]size: 1 capacity: 2 % full: 0.5
+pop: 0 []size: 0 capacity: 1 % full: 0.0

@@ -1,0 +1,28 @@
+;; Sedgewick and Wayne p.547
+
+Write a static method that sorts an integer array that is known to have
+at most two different values. Maintain two pointers, one starting at the
+left end and moving right, the other starting at the right end and moving
+left. Maintain the invariant that all elements to the left of the left
+pointer are equal to the smaller of the two values and all elements to
+the right of the right pointer are equal to the larger of the two values.
+
+
+
+
+public static void partition(int [] data){
+       int left = 0;
+       int right = data.length - 1;
+       int curr = left;
+       int temp;
+       while (left < right){
+          if (data[curr] < data[left]){
+
+	  }
+	   
+
+       }
+
+
+
+}
