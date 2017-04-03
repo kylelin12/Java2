@@ -1,0 +1,43 @@
+1. Implement a fixed capacity stack using an array.
+   Name the class ArrayStack<E> a subclass of the Stack<E>
+   interface.
+
+2. Design the class such that each of the Stack<E> methods
+   have an expected runtime of O(1).
+
+
+3. Provide at least two constructors:
+
+   Beware of Funking Java Syntax while using Generics,
+   you cannot create an array of type E with this syntax
+
+            new E[100];
+
+   you'll need to do the following instead:
+
+          (E[]) new Object[ 100];
+
+
+   a. The default constructor should have have
+      fixed capacity of 100.
+
+      ex. Stack<Integer> stan = new ArrayStack<Integer>();
+
+   b. The second constructor takes an integer argument
+      to define the size of the stack.
+
+      ex. Stack<Integer> stan = new ArrayStack<Integer>(3);
+
+
+
+4. If the methods peek() or pop() are invoked on an empty ArrayStack
+   a EmptyStackException() should be thrown.
+
+
+5. If the method push() is invoked on a full stack then a FullStackException
+   should be thrown. You will need to create a class FullStackException
+   as a subclass of RuntimeException.
+
+
+
+

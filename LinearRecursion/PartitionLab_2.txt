@@ -1,0 +1,14 @@
+Due: Mon. 2/27
+
+;; Sedgewick and Wayne
+
+Dutch National Flag Problem
+===========================
+
+Write a static method that sorts an integer array that is known to have
+at most three different values. (Edsgar Dijkstra named this the Dutch-national-
+flag problem because the result is three "stripes" of values like the three
+stripes in the flag.). Hint: Reduce to the previous problem, by first
+partitioning the array into two parts with all elements having the smallest
+value in the first part and all other elements in the second part, then
+partition the second part.

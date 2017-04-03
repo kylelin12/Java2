@@ -1,0 +1,56 @@
+
+Write a program to evaluate fully parenthesized infix expressions.
+For example, the infix expression ((2 + 3) * 4)  evaluates to 20.
+Note, an infix expresssion is fully parenthesized if there are a
+set of parentheses for each operator.
+
+Your program should recognize the operators: +,-,*,/,%.
+And the sqrt function.
+
+The operands of the expression can be either integers or floats.
+However, assume each operand is nonnegative.
+
+
+In the program, an expression is stored a String. The
+provided function, getTokens(), takes a String expression and
+returns a String array containing the tokens of the expression.
+The tokens of the expressions include: all numbers, (), +-*/%, and sqrt.
+
+For example, 
+
+ getTokens("((25 + (sqrt 4) ) - 1.0)") returns ["(","(","25","+","(","sqrt", "4",")",")","-","1.0",")",")"]
+   
+
+Your task is to complete the function evaluate(String[] expTokens) that
+receives a String array of the tokens and returns the result of evaluating
+the tokens.
+
+For example,
+    String exp = "((25 + (sqrt 4) ) - 1.0)";
+    String [] tokens = getTokens(exp);
+    Double result = evaluate(tokens);
+    // result will be 26.0    
+
+
+Use the following algorithm in writitng the evaluate().:
+  Have two stacks, one for the operators and one for the operands.
+  Process each token of the expression.
+
+  Ignore all ('s.
+
+  If a token is an operator push it onto the operator stack.
+
+  Push numbers, as floats(type Double), onto the operand stack. Recall,
+  Double.parseDouble(String) converts String to a Double.
+
+  When a ) is encountered, pop the operand stack for the required
+  amount of operands, compute the result and push the result back
+  onto the operand stack.
+
+  When no more tokens are to be processed, then the top of the operand
+  stack should hold the final result.
+  
+
+
+Implement the Double evalute(String[]) function found in Evaluator.java.
+
