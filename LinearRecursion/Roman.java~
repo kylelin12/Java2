@@ -1,6 +1,0 @@
-public class Roman{
-    private int _n; // 1 <= _n < 4000
-    private String _value;
-    
-    
-}
