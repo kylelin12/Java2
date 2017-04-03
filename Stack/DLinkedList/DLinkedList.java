@@ -184,7 +184,7 @@ public class DLinkedList<E> {
 
 	public void takeAll(DLinkedList<E> rhs) {
 		while (!rhs.empty())
-			add(rhs.remove(0));
+			add(new DNode<E>(rhs.remove(0), null, null));
 	}
     
 

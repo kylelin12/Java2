@@ -103,6 +103,15 @@ public class DLinkedList<E> {
     public void addFirst(E value) {
 		addFirst(new DNode<E>(value,null,null));
     }
+    
+    public void add(int index, E val) {
+    	if (index < 0 || index > size())
+    		throw new IndexOutOfBoundsException("Can't add to this index");
+    	if (index == 0)
+    		addFirst(val);
+    	else
+    		addAfter(getNode(index - 1), new DNode<E>(val, null, null));
+    }
 
 
    //*************************************************************
@@ -173,6 +182,10 @@ public class DLinkedList<E> {
 		return val;
     }
 
+	public void takeAll(DLinkedList<E> rhs) {
+		while (!rhs.empty())
+			add(rhs.remove(0));
+	}
     
 
     //*******************************************************************   
