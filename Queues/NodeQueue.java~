@@ -33,7 +33,7 @@ public class NodeQueue<E> implements Queue<E> {
     public void enqueue(E value) {
 		Node<E> tempTail = _tail;
 		_tail = new Node<E>(value, null);
-		if (empty())
+		if (empty());
 			_head = _tail;
 		else
 			tempTail.setNext(_tail);
