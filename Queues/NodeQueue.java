@@ -28,8 +28,8 @@ public class NodeQueue<E> implements Queue<E> {
     	if (empty()) throw new EmptyQueueException("Can't dequeue an empty queue");
 		E val = _head.getValue();
 		Node<E> temp = _head;
-		temp.setNext(null);
 		_head = _head.getNext();
+		temp.setNext(null);
 		_size--;
 		return val;
     }

@@ -4,14 +4,14 @@ public class ArrayQueue<E> implements Queue<E> {
 	private int _currentSize;
 	private int _currentPos;
 	
-	public ArrayQueue() {
-		ArrayQueue(10);
-	}
-	
 	public ArrayQueue(int size) {
 		_queue = (E[]) new Object[size];
 		_currentPos = _length = size;
 		_currentSize = 0;	
+	}
+	
+	public ArrayQueue() {
+		ArrayQueue(10);
 	}
 	
 	public int size() {
