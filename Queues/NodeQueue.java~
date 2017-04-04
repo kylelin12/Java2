@@ -20,10 +20,12 @@ public class NodeQueue<E> implements Queue<E> {
     }
 
     public E front() throws EmptyQueueException {
+    	if (empty()) throw new EmptyQueueException("Can't look at an empty queue");
 		return _head.getValue();
     }
 
     public E dequeue() throws EmptyQueueException {
+    	if (empty()) throw new EmptyQueueException("Can't dequeue and empty queue");
 		E val = _head.getValue();
 		_head = _head.getNext();
 		_size--;

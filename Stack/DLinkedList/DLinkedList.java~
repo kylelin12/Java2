@@ -183,8 +183,17 @@ public class DLinkedList<E> {
     }
 
 	public void takeAll(DLinkedList<E> rhs) {
-		while (!rhs.empty())
-			add(new DNode<E>(rhs.remove(0), null, null));
+		if (rhs == this || rhs == null || rhs.empty())
+			return;
+		if (empty())
+			_header.setNext(rhs.getFirst());
+		else
+			getLast().setNext(rhs.getFirst());
+		_tailer = rhs._trailer;
+		rhs._header.setNext(rhs._trailer);
+		rhs._trailer.setPrevious(rhs._header);
+		_size += rhs._size;
+		rhs._size = 0;
 	}
     
 
