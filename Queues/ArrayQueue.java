@@ -1,20 +1,17 @@
 public class ArrayQueue<E> implements Queue<E> {
 	private E[] _queue;
-	private final int CAPACITY = 100;
+	private static final int CAPACITY = 100;
 	private int _head, _tail, _size;
-	
-	public ArrayQueue() {
-		_queue = (E[])(new Object[CAPACITY]);
-		_head = 0;
-		_tail = -1;
-		_size = 0;
-	}
 	
 	public ArrayQueue(int size) {
 		_queue = (E[])(new Object[size]);
 		_head = 0;
 		_tail = -1;
 		_size = 0;
+	}
+	
+	public ArrayQueue() {
+		this(CAPACITY);
 	}
 	
 	public int size() {
