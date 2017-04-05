@@ -1,21 +1,26 @@
+import java.util.Arrays;
+
 public class ArrayQueue<E> implements Queue<E> {
 	private E[] _queue;
-	private int _length;
-	private int _currentSize;
-	private int _currentPos;
+	private final int CAPACITY = 100;
+	private int _head, _tail, _size;
 	
 	public ArrayQueue() {
-		ArrayQueue(10);
+		_queue = (E[])(new Object[CAPACITY]);
+		_head = 0;
+		_tail = -1;
+		_size = 0;
 	}
 	
 	public ArrayQueue(int size) {
-		_queue = (E[]) new Object[size];
-		_currentPos = _length = size;
-		_currentSize = 0;	
+		_queue = (E[])(new Object[size]);
+		_head = 0;
+		_tail = -1;
+		_size = 0;
 	}
 	
 	public int size() {
-		return _currentSize;
+		return _size;
 	}
 	
 	public boolean empty() {
@@ -24,28 +29,31 @@ public class ArrayQueue<E> implements Queue<E> {
 	
 	public E front() throws EmptyQueueException {
 		if (empty()) throw new EmptyQueueException("Can't look at an empty queue");
-		return _queue[_currentPos];
+		return _queue[_head];
 	}
 	
 	public E dequeue() throws EmptyQueueException {
 		if (empty()) throw new EmptyQueueException("Can't dequeue an empty queue");
-		E toReturn = _queue[_currentPos--];
-		_currentSize--;
+		E toReturn = _queue[_head];
+		_queue[_head] = null;
+		_head = (_head + 1) % _queue.length;
+		_size--;
 		return toReturn;
 	}
 	
 	public void enqueue(E val) {
 		if (isFull()) return;
-		if (_currentPos < _length) {
-			_queue[_currentPos] = val;
-			_currentPos++;
-		} else
-			_queue[_length - _currentSize] = val;
-		_currentSize++;
+		_tail = (_tail + 1) % _queue.length;
+		_queue[_tail] = val;
+		_size++;
 	}
 	
 	public boolean isFull() {
-		return (_currentPos == _length) || (_length == _currentSize);
+		return size() == _queue.length;
+	}
+	
+	public String toString() {
+		return Arrays.toString(_queue);
 	}
 	
     public static void main(String [] args) {
@@ -65,6 +73,13 @@ public class ArrayQueue<E> implements Queue<E> {
                 q.enqueue(x);
                 System.out.println("enqueue : " + x + " q: " + q);
             }
+        }
+        for (int i = 0; i < 5 ; i++){
+            q.enqueue(i);
+            System.out.println("enqueue : " + i + " q: " + q);
+        }
+        for (int i = 0; i < 4 ; i++){
+            System.out.println("dequeue : " + q.dequeue() + " q: " + q);
         }
     }
 }
