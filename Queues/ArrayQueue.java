@@ -48,7 +48,7 @@ public class ArrayQueue<E> implements Queue<E> {
 	}
 	
 	public String toString() {
-		if (size() == 0) return "[ ]";
+		if (empty()) return "[ ]";
 		String string = "[ ";
 		for (int i = 0; i < size() - 1; i++) {
 			string += _queue[(_head + i) % _queue.length] + ", ";
