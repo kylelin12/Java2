@@ -10,9 +10,10 @@ public class Josephus {
 	
 	// returns the winner
 	public static<E> E josephus(Queue<E> q, int k) {
+		System.out.println("k: " + k);
 		while (q.size() > 1) {
 			for (int i = 0; i < k; i++) {
-				q.enqueue(q.dequeue);
+				q.enqueue(q.dequeue());
 			}
 			q.dequeue();
 		}
@@ -20,11 +21,13 @@ public class Josephus {
 	}
 	
 	public static void main(String[] args) {
-		ArrayList<Integer> players = new ArrayList(16);
-		for (int i = 0; i < players.size(); i++) {
+		ArrayList<Integer> players = new ArrayList<Integer>();
+		for (int i = 0; i < 16; i++) {
 			players.add(i);
 		}
-		Queue<Integer> queue = buildQueue(players);
-		System.out.println(josephus(queue, 2));
+		System.out.println(josephus(buildQueue(players), 8));
+		System.out.println(josephus(buildQueue(players), 5));
+		System.out.println(josephus(buildQueue(players), 3));
+		System.out.println(josephus(buildQueue(players), 4));
 	}
 }
