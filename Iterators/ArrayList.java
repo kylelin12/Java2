@@ -26,7 +26,7 @@ public class ArrayList<E> implements List<E>{
 	// postondition: add obj to the end of the list.
 	public boolean add(E obj) {
 		if (size() == _data.length) resize();
-			_data[_size++] = obj;
+		_data[_size++] = obj;
 		return true;
 	}
 
@@ -43,7 +43,14 @@ public class ArrayList<E> implements List<E>{
 	*/
 	// postcondition: 
 	public void add(int index, E obj) throws IndexOutOfBoundsException {
-		/* YOUR CODE GOES HERE */
+		if (index < 0)
+			throw new IndexOutOfBoundsException("index : " + index);
+		if (size() == _data.length) resize();
+		for (int i = size(); i > index; i--) {
+			_data[i] = _data[i-1];
+		}
+		_data[index] = obj;
+		_size++;
 	}		
 
 
@@ -57,7 +64,7 @@ public class ArrayList<E> implements List<E>{
 		if (index < 0 || index >= size())
 			throw new IndexOutOfBoundsException("index : " + index);
 		E ans =  _data[index];
-		_data [index] = obj;
+		_data[index] = obj;
 		return ans;
 	}
 
@@ -72,7 +79,12 @@ public class ArrayList<E> implements List<E>{
 	*/  
 	// postcondition: removes and returns the obj at index E
 	public E remove(int index) {
-		// YOUR CODE GOES HERE
+		E temp = _data[index];
+		for (int i = index; i < size() - 1; i++) {
+			_data[i] = _data[i+1];
+		}
+		_size--;
+		return temp;
 	}
 
 	public String toString() {
@@ -94,21 +106,19 @@ public class ArrayList<E> implements List<E>{
 			L.add(i);
 			System.out.println("L: " + L);
 		}
-		/*
+
 		for (int i = 10; i < 20; i++){
 			int r = (int)(Math.random() * L.size() + 1);
 			System.out.println("r: " + r);
 			L.add(r, i);
 			System.out.println("L: " + L);
 		}
-		*/
-		/*
+		
 		System.out.println("************ REMOVING **********");
 		while (L.size() > 0){
 			int r = (int)(Math.random() * L.size());
 			System.out.println(" remove " + L.remove(r));
 			System.out.println("L: " + L);
 		}
-		*/
 	}
 }
