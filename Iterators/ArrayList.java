@@ -43,7 +43,7 @@ public class ArrayList<E> implements List<E>{
 	*/
 	// postcondition: 
 	public void add(int index, E obj) throws IndexOutOfBoundsException {
-		if (index < 0)
+		if (index < 0 || index > size())
 			throw new IndexOutOfBoundsException("index : " + index);
 		if (size() == _data.length) resize();
 		for (int i = size(); i > index; i--) {
