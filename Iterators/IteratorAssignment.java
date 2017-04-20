@@ -7,17 +7,32 @@ public class IteratorAssignment {
 
 	// For-each loop
 	public static int countEvensFE(List<Integer> L) {
-		
+		int evens = 0;
+		for (Integer x : L)
+			if (x % 2 == 0)
+				evens++;
+		return evens;
 	}
 	
 	// Using iterator directly
 	public static int countEvensI(List<Integer> L) {
-	
+		Iterator<Integer> itr = L.iterator();
+		int evens = 0;
+		while (itr.hasNext()) {
+			if (itr.next() % 2 == 0);
+			evens++;
+		}
+		return evens;
 	}
 	
 	// Using the get(int index) method
 	public static int countEvensG(List<Integer> L) {
-	
+		int evens = 0;
+		for (int i = 0; i < L.size(); i++) {
+			if (L.get(i) % 2 == 0)
+				evens++;
+		}
+		return evens;
 	}
 	
 	public static void main(String[] args) {
