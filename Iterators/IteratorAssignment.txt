@@ -1,0 +1,27 @@
+   Write a program that creates a list of consecutive integers from 0 to N.
+   Have N be determined from the command line. Then compute the number
+   of even integers in the list in the following 3 ways:
+   
+
+
+    - use a for-each loop
+    - use an iterator directly
+    - use the get(int) method
+
+    Implement three versions of the following function:
+
+     public static int countEvens(List<Integer> L){}
+
+
+
+   Make sure to test your code with both an ArrayList and a LinkedList.
+
+
+   You'll need to import the following classes:
+
+   	  import java.util.ArrayList;
+	  import java.util.LinkedList;
+	  import java.util.List;
+	  import java.util.Iterator;
+
+
