@@ -38,9 +38,15 @@ public class IteratorAssignment {
 	public static void main(String[] args) {
 		List<Integer> numbersA = new ArrayList<Integer>();
 		List<Integer> numbersL = new LinkedList<Integer>();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 100000; i++) {
 			numbersA.add(i);
 			numbersL.add(i);
 		}
+		System.out.println(countEvensFE(numbersA));
+		System.out.println(countEvensI(numbersA));
+		System.out.println(countEvensG(numbersA));
+		System.out.println(countEvensFE(numbersL));
+		System.out.println(countEvensI(numbersL));
+		System.out.println(countEvensG(numbersL));
 	}
 }
