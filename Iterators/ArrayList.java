@@ -78,7 +78,9 @@ public class ArrayList<E> implements List<E>{
 	L.remove(0)             "d"          []
 	*/  
 	// postcondition: removes and returns the obj at index E
-	public E remove(int index) {
+	public E remove(int index) throws IndexOutOfBoundsException {
+		if (index < 0 || index >= size())
+			throw new IndexOutOfBoundsException("index : " + index);
 		E temp = _data[index];
 		for (int i = index; i < size() - 1; i++) {
 			_data[i] = _data[i+1];
