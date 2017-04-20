@@ -82,10 +82,11 @@ public class ArrayList<E> implements List<E>{
 		if (index < 0 || index >= size())
 			throw new IndexOutOfBoundsException("index : " + index);
 		E temp = _data[index];
-		for (int i = index; i < size() - 1; i++) {
+		_size--;
+		for (int i = index; i < _size; i++) {
 			_data[i] = _data[i+1];
 		}
-		_size--;
+		_data[_size] = null; // Frees Element
 		return temp;
 	}
 
