@@ -75,6 +75,35 @@ public class ArrayList<E> implements List<E>{
 		return ans + "size: " + size();
     }
 
+	public Iterator<E> iterator() {
+		return new ListIterator<E>();
+	}
+	
+	// Private inner class
+	private class ListIterator implements Iterator<E> {
+		
+		// Private instance variables
+		
+		// Constructors
+		
+		public ListIterator() {
+			
+		}
+		
+		// Methods
+		
+		public boolean hasNext() {
+			return false;
+		}
+		
+		public E next() {
+			return null;
+		}
+		
+		public void remove() throws IllegalStateException {
+			return;
+		}
+	}
 
     public static void main(String [] args){
 		ArrayList<Integer> L = new ArrayList<Integer>();
