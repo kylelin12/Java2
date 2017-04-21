@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class RemoveEvens {
 
     // uses get
-    // ArrayList O(n)
+    // ArrayList O(n*n)
     // LinkedList O(n*n)
     public static void removeEvens(List<Integer> L) {
 		for (int i = 0; i < L.size(); i++){
