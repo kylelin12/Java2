@@ -2,7 +2,7 @@
 
 In Java, a **Collection** can utilize the for-each loop provided that it implements the Iterable interface.
 
-##### Iterable Interface
+#### Iterable Interface
 
 * Iterable.java is located in `java.lang`.
 
@@ -49,7 +49,7 @@ public interface Iterator<E> {
 }
 ```
 
-##### Example of using an iterator directly
+#### Example of using an iterator directly
 
 ```
 .
@@ -69,3 +69,7 @@ OUTPUT:
 1
 2
 ```
+
+### Removing via an iterator
+`public void remove() throws IllegalStateException`
+This method can be called only once per call to next.
