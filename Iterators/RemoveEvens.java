@@ -6,18 +6,22 @@ import java.util.Iterator;
 public class RemoveEvens {
 
     // uses get
+    // ArrayList O(n)
+    // LinkedList O(n*n)
     public static void removeEvens(List<Integer> L) {
 		for (int i = 0; i < L.size(); i++){
-	 	   if (L.get(i) % 2 == 0)
+		if (L.get(i) % 2 == 0)
 			L.remove(i);
 		}
     }
    
 	// uses an iterator
+	// ArrayList O(n)
+	// LinkedList O(n)
     public static void removeEvens2(List<Integer> L) {
 		Iterator<Integer> itr = L.iterator();
 		while (itr.hasNext()){
-	 	   if (itr.next() % 2 == 0)
+			if (itr.next() % 2 == 0)
 			itr.remove();
 		}
     }
