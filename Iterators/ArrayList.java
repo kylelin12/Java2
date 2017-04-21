@@ -76,28 +76,31 @@ public class ArrayList<E> implements List<E>{
     }
 
 	public Iterator<E> iterator() {
-		return new ListIterator<E>();
+		return new ListIterator();
 	}
 	
 	// Private inner class
 	private class ListIterator implements Iterator<E> {
 		
 		// Private instance variables
-		
+		private int _index;
 		// Constructors
 		
 		public ListIterator() {
-			
+			_index = -1;
 		}
 		
 		// Methods
 		
 		public boolean hasNext() {
-			return false;
+			return (_index < size() - 1);
 		}
 		
-		public E next() {
-			return null;
+		public E next() throws IllegalStateException {
+			if (!hasNext())
+				throw new IllegalStateException("There is no next");
+			_index++;
+			return (_data[_index]);
 		}
 		
 		public void remove() throws IllegalStateException {
