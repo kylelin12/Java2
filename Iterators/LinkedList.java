@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class LinkedList < E > implements List < E > {
 
 	private DNode < E > _header,
@@ -127,7 +129,7 @@ public class LinkedList < E > implements List < E > {
 
 	}
 	// *********** Required by the List interface. ******************
-	public Eget(int i) {
+	public E get(int i) {
 		if (i < 0 || i >= size()) 
 			throw new IndexOutOfBoundsException("i : " + i + "index < 0 || index >= size()");
 		return getNode(i).getValue();
@@ -181,7 +183,7 @@ public class LinkedList < E > implements List < E > {
 		return ans;
 	}
 	//*******************************************************************   
-	public Eset(int index, E obj) {
+	public E set(int index, E obj) {
 		DNode < E > temp = getNode(index);
 		return temp.setValue(obj);
 
@@ -218,6 +220,41 @@ public class LinkedList < E > implements List < E > {
 	/****************************************************************
      *   Code to support the for-each loop and Iterators
      */
+    public Iterator<E> iterator() {
+    	return new ListIterator(this);
+    }
+    
+    private class ListIterator implements Iterator<E> {
+    	
+    	// Private instance variables
+    	private boolean _removeOk;
+    	private LinkedList<E> _myList;
+    	
+    	// Constructor
+    	public ListIterator(LinkedList<E> myList) {
+    		_removeOk = false;
+    		_myList.setFirst(myList.getNode());
+    	}
+    	
+    	// Methods
+    	public boolean hasNext() {
+    		return _myList.getNode().getNext() == null;
+    	}
+    	
+    	public E next() throws IllegalStateException {
+    		if (!hasNext())
+    			throw new IllegalStateException("There is no next");
+    		_myList = _myList.getNode().getNext();
+    		_removeOk = true;
+    		return _myList.getNode().getValue();
+    	}
+    	
+    	public void remove() throws IllegalStateException {
+    		if (!_removeOk)
+    			throw new IllegalStateException("Next hasn't been called");
+    		_myList.removeFirst();
+    	}
+    }
 
 	public static void main(String[] args) {
 		LinkedList < Integer > L = new LinkedList < Integer > ();
