@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class ArrayList<E> implements List<E>{
 
     private E[] _data;
@@ -76,7 +78,7 @@ public class ArrayList<E> implements List<E>{
     }
 
 	public Iterator<E> iterator() {
-		return new ListIterator();
+		return new ListIterator(this);
 	}
 	
 	// Private inner class
@@ -84,10 +86,14 @@ public class ArrayList<E> implements List<E>{
 		
 		// Private instance variables
 		private int _index;
+		private boolean _removeOk;
+		private ArrayList<E> _myList;
 		// Constructors
 		
-		public ListIterator() {
+		public ListIterator(ArrayList<E> myList) {
 			_index = -1;
+			_removeOk = false;
+			_myList = myList;
 		}
 		
 		// Methods
@@ -99,12 +105,15 @@ public class ArrayList<E> implements List<E>{
 		public E next() throws IllegalStateException {
 			if (!hasNext())
 				throw new IllegalStateException("There is no next");
-			_index++;
-			return (_data[_index]);
+			_removeOk = true;
+			return (_data[++_index]);
 		}
 		
 		public void remove() throws IllegalStateException {
-			return;
+			if (!_removeOk)
+				throw new IllegalStateException("Next was not called");
+			_removeOk = false;
+			_myList.remove(_index--);
 		}
 	}
 
@@ -137,7 +146,6 @@ public class ArrayList<E> implements List<E>{
 
 		*/
 
-		/*
 		System.out.println("L : " + L);
 		Iterator <Integer> itr = L.iterator();
 		// remove evens
@@ -145,8 +153,7 @@ public class ArrayList<E> implements List<E>{
 			if (itr.next() % 2 == 0)
 				itr.remove();
 		}
-		itr.remove(); // throws an exception
+		// itr.remove(); // throws an exception
 		System.out.println("L : " + L);
-		*/
 	}
 }
