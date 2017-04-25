@@ -227,32 +227,36 @@ public class LinkedList < E > implements List < E > {
     private class ListIterator implements Iterator<E> {
     	
     	// Private instance variables
+    	private DNode<E> _current;
     	private boolean _removeOk;
-    	private LinkedList<E> _myList;
+    	private LinkedList _myList;
     	
     	// Constructor
     	public ListIterator(LinkedList<E> myList) {
     		_removeOk = false;
-    		_myList.setFirst(myList.getNode());
+    		_myList = myList;
+    		_current = _header;
     	}
     	
     	// Methods
     	public boolean hasNext() {
-    		return _myList.getNode().getNext() == null;
+    		return _current.getNext() != _trailer;
     	}
     	
     	public E next() throws IllegalStateException {
     		if (!hasNext())
     			throw new IllegalStateException("There is no next");
-    		_myList = _myList.getNode().getNext();
+    		_current = _current.getNext();
     		_removeOk = true;
-    		return _myList.getNode().getValue();
+    		return _current.getValue();
     	}
     	
     	public void remove() throws IllegalStateException {
     		if (!_removeOk)
     			throw new IllegalStateException("Next hasn't been called");
-    		_myList.removeFirst();
+    		_removeOk = false;
+    		_current = _current.getPrevious();
+    		_myList.remove(_current.getNext());
     	}
     }
 
@@ -273,7 +277,7 @@ public class LinkedList < E > implements List < E > {
 			//System.out.println(itr.next());
 		}
 		for (Integer x: L)
-		System.out.println(x);
+			System.out.println(x);
 
 	}
 
