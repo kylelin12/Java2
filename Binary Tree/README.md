@@ -108,7 +108,6 @@ Determine the binary tree.
 	  8     7
 	 /     / \
 	3     9  11
-   /
-  10
-```
+     \
+     10
 ```
