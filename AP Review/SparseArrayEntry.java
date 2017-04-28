@@ -4,7 +4,7 @@ public class SparseArrayEntry {
 	private int col;
 	private int value;
 	
-	public SparseArrayEnter(int r, int c, int v) {
+	public SparseArrayEntry(int r, int c, int v) {
 		row = r;
 		col = c;
 		value = v;
