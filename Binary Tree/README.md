@@ -75,3 +75,40 @@ __**Postorder Traversal**__
 
 __Ex.__ What is the postorder traversal of the examle binary tree?
 4, 2, 7, 8, 5, 6, 3, 1
+
+---
+
+# Practice
+(A) Given the binary tree
+```
+		 1
+	   /   \
+	  8     7
+	   \    /\
+	    3  9  11
+	     \
+	      10
+```
+
+__**Perform the following transversals**__
+
+* Preorder: 1, 8, 3, 10, 7, 9, 11
+* Inorder: 8, 10, 3, 1, 9, 7, 11
+* Postorder: 10, 3, 8, 9, 11, 7, 1
+
+(B) Given the following transversals
+* Inorder: 3, 10, 8, 4, 9, 7, 11
+* Preorder: 4, 8, 3, 10, 7, 9, 11
+* Postorder: 10, 3, 8, 9, 11, 7, 4
+
+Determine the binary tree.
+```
+		 4
+	   /   \
+	  8     7
+	 /     / \
+	3     9  11
+   /
+  10
+```
+```
