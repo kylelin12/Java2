@@ -17,5 +17,6 @@ public class HiddenWord {
 			else
 				ans += "*";
 		}
+		return ans;
 	}
 }
