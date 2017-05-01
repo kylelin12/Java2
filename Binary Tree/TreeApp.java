@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack; // its a class 
-
 public class TreeApp {
 
 	public static < E > void traverseInorder(TreeNode < E > root) {
@@ -43,8 +42,7 @@ public class TreeApp {
 	}
 
 	public static void main(String[] args) {
-		TreeNode < Integer > root = new TreeNode < Integer > (1, null, null);
-
+		TreeNode < Integer > root = new TreeNode < Integer > (1, new TreeNode < Integer > (2, null, new TreeNode < Integer > (4)), new TreeNode < Integer > (3, new TreeNode < Integer > (5, new TreeNode < Integer > (7), new TreeNode < Integer > (8)), new TreeNode < Integer > (6)));
 		System.out.print("inorder : ");
 		traverseInorder(root);
 		System.out.print("\npreorder : ");

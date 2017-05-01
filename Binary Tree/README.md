@@ -123,6 +123,6 @@ __**Perform the transversals 2**__
 		   7   8
 ```
 
-* Inorder: 4, 2, 1, 7, 5, 3, 8, 6
+* Inorder: 2, 4, 1, 7, 5, 8, 3, 6
 * Preorder: 1, 2, 4, 3, 5, 7, 8, 6
 * Postorder: 4, 2, 7, 8, 5, 6, 3, 1
