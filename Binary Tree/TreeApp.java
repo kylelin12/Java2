@@ -25,8 +25,10 @@ public class TreeApp {
 	// ********** Question 2 *********************************
 	// Recursively process the tree to count the nodes.
 	// postcondition: returns the number of nodes in the tree.
-	public static < E > int countNodes(TreeNode < E > rt) {
-		return - 1;
+	public static < E > int countNodes(TreeNode < E > root) {
+		if (root == null) return 0;
+		int ans = 1;
+		return ans + countNodes(root.getLeft()) + countNodes(root.getRight());
 	}
 
 	// ********** Question 3 *********************************
@@ -37,8 +39,22 @@ public class TreeApp {
 	//   void push(E)
 	//   E pop()
 	//   E peek()
-	public static < E > int countNodesI(TreeNode < E > rt) {
-		return - 1;
+	public static < E > int countNodesI(TreeNode < E > root) {
+		if (root == null) return 0;
+		int count = 0;
+		TreeNode < E > temp = root;
+		Stack < TreeNode > treeStack = new Stack < TreeNode > ();
+		while (!treeStack.empty() || temp != null) {
+			if (temp != null) {
+				treeStack.push(temp);
+				temp = temp.getLeft();
+			} else {
+				count++;
+				temp = treeStack.pop();
+				temp = temp.getRight();
+			}
+		}
+		return count;
 	}
 
 	public static void main(String[] args) {
