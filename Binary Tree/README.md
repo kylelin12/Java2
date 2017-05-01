@@ -111,3 +111,18 @@ Determine the binary tree.
      \
      10
 ```
+
+__**Perform the transversals 2**__
+```
+			1
+		  /   \
+		 2     3
+		  \   / \
+		   4 5   6
+		    / \
+		   7   8
+```
+
+* Inorder: 4, 2, 1, 7, 5, 3, 8, 6
+* Preorder: 1, 2, 4, 3, 5, 7, 8, 6
+* Postorder: 4, 2, 7, 8, 5, 6, 3, 1
