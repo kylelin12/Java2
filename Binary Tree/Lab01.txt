@@ -1,0 +1,28 @@
+
+
+Add the following methods to TreeApp.
+=====================================
+
+1. Write the method isLeaf() that returns true if the node is a leaf;
+   false otherwise.
+
+   public static<E> boolean isLeaf(TreeNode<E> rt) {}
+
+
+2. Write the method countLeaves() that returns the number of leaves
+   in a binary tree.
+
+   public static<E> int countLeaves(TreeNode<E> rt) {}
+
+
+3. Write the method height() that returns the height of a binary tree.
+   
+    public static<E> int height(TreeNode<E> rt) {}
+    
+4. Write the method insertBalanced() that inserts a new leaf into a binary 
+   tree by placing the leaf into the left or right subtree with fewer nodes.
+   The height of the tree should only increase if the tree was completely
+   balanced.
+   // post condition: inserts a leaf into the tree and returns the 
+   //                 root of the tree.
+   public static<E> TreeNode<E> insertBalanced(TreeNode<E> rt, E value)
