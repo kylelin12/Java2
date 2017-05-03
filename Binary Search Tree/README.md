@@ -23,3 +23,41 @@ Given a value, x, start at the root and insert x as a leaf following these steps
 3. Else, if x is greater than or equal to the root and the right subtree is empty, insert x as the root of the right subtree.
 4. Else, if x is less than the current root, go left.
 5. Else, go right.
+
+# Practice
+#### P1
+Draw the following BST by inserting this sequence of numbers
+`4, 8, 12, 5, 14, 21, 2, 1`
+
+```
+			 4
+		    / \
+		   2   8
+		  /   / \
+	   	 1   5   12
+	   	     	  \
+	   	     	   14
+	   	     	  	\
+	   	     	  	 21
+```
+
+#### P2
+Perform an inorder traversal:
+`1, 2, 4, 8, 5, 12, 14, 21`
+
+#### P3
+Is the tree balanced?
+`No`
+
+#### P4
+Rearrange the sequence to produce a balanced tree.
+`8, 4, 14, 2, 5, 12, 21, 1`
+```
+			 8
+		   /   \
+		  4     14
+		 / \    / \
+		2   5  12  21
+	   /
+	  1
+```
