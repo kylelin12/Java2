@@ -43,7 +43,7 @@ Draw the following BST by inserting this sequence of numbers
 
 #### P2
 Perform an inorder traversal:
-`1, 2, 4, 8, 5, 12, 14, 21`
+`1, 2, 4, 5, 8, 12, 14, 21`
 
 #### P3
 Is the tree balanced?
