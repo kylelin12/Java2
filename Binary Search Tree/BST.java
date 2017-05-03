@@ -27,7 +27,14 @@ public class BST < E extends Comparable > {
 	// ******* Question 1 **********************
 	// inserts the node into the BST.
 	private void insertNode(TreeNode < E > n) {
-
+		if (n == null) 
+			_root = n;
+		else if (n.getValue() < _root.getValue() && _root.getLeft() == null)
+			_root.setLeft(n);
+		else if (n.getValue() >= _root.getValue() && _root.getRight() == null)
+			_root.setRight(n);
+		else if (n.getValue() < _root.getValue())
+			_root.getLeft()
 	}
 
 	public void inorder() {
