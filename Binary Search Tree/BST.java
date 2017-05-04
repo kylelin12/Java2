@@ -26,15 +26,43 @@ public class BST < E extends Comparable > {
 
 	// ******* Question 1 **********************
 	// inserts the node into the BST.
-	private void insertNode(TreeNode < E > n) {
-		if (n == null) 
-			_root = n;
-		else if (n.getValue() < _root.getValue() && _root.getLeft() == null)
-			_root.setLeft(n);
-		else if (n.getValue() >= _root.getValue() && _root.getRight() == null)
-			_root.setRight(n);
-		else if (n.getValue() < _root.getValue())
-			_root.getLeft()
+	// Uses piggybacking
+	private void insertNode(TreeNode < E > leaf) {
+		E val = leaf.getValue();
+		if (_root == null) _root = leaf;
+		else {
+			TreeNode < E > prev = _root;
+			TreeNode < E > curr = _root;
+			while (curr != null) {
+				prev = curr;
+				if (val.compareTo(curr.getValue()) < 0)
+					curr = curr.getLeft();
+				else
+					curr = curr.getRight();
+			}
+			if (val.compareTo(prev.getValue()) < 0)
+				prev.setLeft(leaf);
+			else
+				prev.setRight(leaf);
+		}
+		_size++;
+	}
+	
+	// Question 2
+	// Recursive version of insertion
+	public void insertI(E val) {
+		_root = insertNode(_root, new TreeNode < E >(val));
+		_size++;
+	}
+
+	public TreeNode < E > insertNode(TreeNode < E > rt, TreeNode < E > leaf) {
+		if (rt == null) return leaf;
+		E val = leaf.getValue();
+		if (val.compareTo(rt.getValue()) < 0)
+			rt.setLeft(insertNode(rt.getLeft(), leaf));
+		else
+			rt.setRight(insertNode(rt.getRight(), leaf));
+		return rt;
 	}
 
 	public void inorder() {
@@ -56,7 +84,7 @@ public class BST < E extends Comparable > {
 		for (int i = 0; i < N; i++) {
 			int r = (int)(Math.random() * 100);
 			System.out.println("insert " + r);
-			tree.insert(r);
+			tree.insertI(r);
 		}
 		tree.inorder();
 	}
