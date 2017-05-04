@@ -61,3 +61,38 @@ Rearrange the sequence to produce a balanced tree.
 	   /
 	  1
 ```
+
+#### P5
+Draw the BST from
+`12, 10, 8, 11, 25, 17, 6, 25`
+```
+			     12
+			   /    \
+			  10     25
+			 /  \   /  \
+			8   11 17  25
+		   /
+		  6
+```
+
+#### P6
+Is this tree balanced?
+`Yes`
+
+#### P7
+What is the expected runtime of building a balanced BST with N nodes?
+`O(NLogN)`
+
+#### P8
+Draw a BST of N nodes whose runtime for building the tree is `O(N*N)`
+```
+25
+  \
+   26
+    \
+     27
+      \
+       28
+        \
+         29
+```
