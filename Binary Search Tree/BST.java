@@ -50,7 +50,7 @@ public class BST < E extends Comparable > {
 	
 	// Question 2
 	// Recursive version of insertion
-	public void insertI(E val) {
+	public void insertR(E val) {
 		_root = insertNode(_root, new TreeNode < E >(val));
 		_size++;
 	}
@@ -64,6 +64,54 @@ public class BST < E extends Comparable > {
 			rt.setRight(insertNode(rt.getRight(), leaf));
 		return rt;
 	}
+	
+	// Question 3
+	// O(LogN) find()
+	// Finds a value and reports that node
+	public TreeNode < E > find(E val) {
+		TreeNode < E > curr = _root;
+		while (curr != null) {
+			if (val == curr.getValue())
+				return curr;
+			else if (val.compareTo(curr.getValue()) < 0)
+				curr = curr.getLeft();
+			else
+				curr = curr.getRight();
+		}
+		return null;
+	}
+
+	public TreeNode < E > findR(E val) {
+		return find(_root, val);
+	}
+
+	private TreeNode < E > find(TreeNode < E > rt, E val) {
+		if (rt == null) return null;
+		if (val.compareTo(rt.getValue()) < 0)
+			return find(rt.getLeft(), val);
+		else if (val.compareTo(rt.getValue()) > 0)
+			return find(rt.getRight(), val);
+		return rt;
+	}
+	
+	// Problem 4
+	// Write the BST method that returns the max value
+	private TreeNode < E > maxNode(TreeNode < E > rt) {
+		if (rt == null) return null;
+		while (rt.getRight() != null)
+			rt = rt.getRight();
+		return rt;
+	}
+	
+	private TreeNode < E > maxNodeR(TreeNode < E > rt) {
+		if (rt == null) return null;
+		if (rt.getRight() == null)
+			return rt;
+		return maxNodeR(rt.getRight());
+	}
+	
+	// Problem 5
+	// Write the BST method that removes the node with that value
 
 	public void inorder() {
 		System.out.print("inorder: ");
@@ -82,11 +130,17 @@ public class BST < E extends Comparable > {
 		BST < Integer > tree = new BST < Integer > ();
 		int N = Integer.parseInt(args[0]);
 		for (int i = 0; i < N; i++) {
-			int r = (int)(Math.random() * 100);
+			int r = (int)(Math.random() * 5);
 			System.out.println("insert " + r);
-			tree.insertI(r);
+			tree.insertR(r);
 		}
 		tree.inorder();
+		
+		System.out.println("Finding Iterative (4): " + tree.find(4));
+		System.out.println("Finding Recursive (3): " + tree.findR(3));
+		
+		System.out.println("MaxNode Iterative: " + tree.maxNode(tree._root));
+		System.out.println("MaxNode Recursive: " + tree.maxNodeR(tree._root));
 	}
 
 }
