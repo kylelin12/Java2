@@ -96,3 +96,13 @@ Draw a BST of N nodes whose runtime for building the tree is `O(N*N)`
         \
          29
 ```
+
+#### Def.
+A **internal node** of a binary tree is a node with at least 1 child.
+
+#### Removal algorithm for a BST
+Removing val from a BST
+1. If the tree is empty then stop (DONE).
+2. If the val is a leaf remove the leaf.
+3. If the val is an internal node with no right subtree, then transfer the maximum value, max, from the left subtree into the node that voltains val, then remove max from the left subtree.
+4. Otherwise, transfer the minimum value, min, from the right subtree into the node that contains val, then remove min from the right subtree.
