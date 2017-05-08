@@ -112,6 +112,64 @@ public class BST < E extends Comparable > {
 	
 	// Problem 5
 	// Write the BST method that removes the node with that value
+	
+	public boolean isFound(E x) {
+		return find(x) != null;
+	}
+	
+	public E maxValue() throws IllegalStateException {
+		return maxValue(_root);
+	}
+	
+	private E maxValue(TreeNode < E > rt) throws IllegalStateException {
+		if (rt == null) throw new IllegalStateException("Empty");
+		return maxNode(rt).getValue();
+	}
+	
+	private TreeNode < E > maxNode(TreeNode < E > rt) {
+		if (rt != null) {
+			while (rt.getRight() != null)
+			rt = rt.getright();
+		}
+		return rt;
+	}
+	
+	public E minValue() throws IllegalStateException {
+		return minValue(_root);
+    }
+
+    private E minValue(TreeNode< E > rt) throws IllegalStateException {
+		if (rt == null) throw new IllegalStateException("empty");	
+		return minNode(rt).getValue();
+    }
+    
+    private TreeNode< E > minNode(TreeNode< E > rt) {
+		if (rt != null) 
+	 	   while (rt.getLeft() != null) 
+			rt = rt.getLeft();
+		return rt;
+    }
+
+	public boolean remove(E val) {
+		if (isFound(val)){
+		    _root = remove(_root, val);
+		    _size--;
+		    return true;
+		}
+		return false;
+    }
+
+	// pre: val is in the tree
+    // post : removes one occurrence of val in the tree,
+    //        returns the root of the tree (subtree) that
+    //        contained the removed val.
+    private TreeNode< E > remove(TreeNode< E > rt, E val) {
+		if (rt == null) return null;
+		if (rt.getLeft() == null && rt.getRight() == null) return null;
+		if (rt.getRight() == null) {
+			
+		}
+    }
 
 	public void inorder() {
 		System.out.print("inorder: ");
