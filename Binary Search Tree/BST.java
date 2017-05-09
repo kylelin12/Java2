@@ -225,7 +225,7 @@ public class BST < E extends Comparable < E >> implements Iterable < E > {
 	// *********************************************************
 	// needed for the Iterable interface
 	public Iterator < E > iterator() {
-		return null;
+		return new BST_Iterator(_root);
 	}
 
 	private class BST_Iterator implements Iterator < E > {
@@ -241,13 +241,15 @@ public class BST < E extends Comparable < E >> implements Iterable < E > {
 		// O(N log N)
 		// populates a list of the tree's entries in increasing order
 		public BST_Iterator(BST < E > tree) {
-
-}
+			_tree = tree;
+			populate(_list, _tree);
+		}
 		// O(N)
 		// populates L with the vales from the BST represented by rt.
 		// L is in increasing order.
 		private void populate(ArrayList < E > L, TreeNode < E > rt) {
-			return;
+			while (!isLeaf(rt))
+				L.add(rt.minValue());
 		}
 
 		// O(1)
