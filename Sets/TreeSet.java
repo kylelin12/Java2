@@ -33,7 +33,7 @@ public class TreeSet < E extends Comparable < E > >implements Set < E > {
 	public static void main(String[] args) {
 		String str = args[0];
 		Set < String > s = new TreeSet < String > ();
-		for (int i = 0; i < str.length; i++) {
+		for (int i = 0; i < str.length(); i++) {
 			s.add(str.substring(i, i + 1));
 		}
 		for (String a: s) {
