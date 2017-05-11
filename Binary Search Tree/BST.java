@@ -225,7 +225,7 @@ public class BST < E extends Comparable < E >> implements Iterable < E > {
 	// *********************************************************
 	// needed for the Iterable interface
 	public Iterator < E > iterator() {
-		return new BST_Iterator(_root);
+		return new BST_Iterator(this);
 	}
 
 	private class BST_Iterator implements Iterator < E > {
@@ -242,34 +242,43 @@ public class BST < E extends Comparable < E >> implements Iterable < E > {
 		// populates a list of the tree's entries in increasing order
 		public BST_Iterator(BST < E > tree) {
 			_tree = tree;
-			populate(_list, _tree);
+			_list = new ArrayList < E >();
+			populate(_list, _tree._root);
+			_itr = _list.iterator();
+			_valReturned = null;
 		}
 		// O(N)
 		// populates L with the vales from the BST represented by rt.
 		// L is in increasing order.
 		private void populate(ArrayList < E > L, TreeNode < E > rt) {
-			while (!isLeaf(rt))
-				L.add(rt.minValue());
+			if (rt == null) return rt;
+				populate(L, rt.getLeft());
+			L.add(rt.getValue());
+			populate(L, rt.getRight());
 		}
 
 		// O(1)
 		// checks if _list's iterator has a next value.
 		public boolean hasNext() {
-			return true;
+			return _itr.hasNext();
 		}
 
 		// O(1)
 		// Initializes _valReturned and returns the
 		// value of _valReturned.
 		public E next() throws IllegalStateException {
-			return null;
+			if (!hasNext()) throw new IllegalStateException("No next");
+			_valReturned = _itr.next():
+			return _valReturned;
 		}
 
 		// O(logN)
 		// removes the value from the BST not the list
 		// sets the _valReturned variable to null
 		public void remove() throws IllegalStateException {
-			return;
+			if (_valReturned == null) throw new IllegalStateException();
+			_tree.remove(_valReturned);
+			_valReturned = null;
 		}
 	}
 	// *********** End of Question 5 ************************
