@@ -18,8 +18,7 @@ public class TreeSet < E extends Comparable < E > >implements Set < E > {
 	}
 
 	public boolean remove(E val) {
-		_tree.remove(val);
-		return true;
+		return _tree.remove(val);
 	}
 
 	public int size() {
