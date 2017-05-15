@@ -83,3 +83,6 @@ A binary tree is a **complete binary tree** if the binary tree (excluding the la
 
 ###Def.                    
 A **heap** is a complete binary tree in which each parent node is less than (greater than) or equal to each of its children.
+
+###Heap implementation                            
+Heaps can be implemented by using an ArrayList where the root of the heap is at index 0 and the children of the parent at index i reside at indices 2i + 1 (left child) and 2i + 2 (right child).
