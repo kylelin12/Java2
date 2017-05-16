@@ -12,6 +12,19 @@ public class Demo {
 			list[i] = temp.poll();
 		}
 	}
+	
+	public static void add(int v, ArrayList < Integer > heap) {
+		heap.add(v);
+		int pos = heap.size() - 1;
+		int parent;
+		while (pos > 0) {
+			parent = (pos - 1) / 2;
+			if (heap.get(parent) > heap.get(pos))
+				heap.set(pos, heap.set(parent, heap.get(pos)));
+			else
+				break;
+		}
+	}
 
 	public static void main(String[] args) {
 		String[] fruits = {
