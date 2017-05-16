@@ -26,6 +26,16 @@ public class Demo {
 		}
 	}
 
+	public static void remove(int v, ArrayList < Integer > heap) {
+		int pos = heap.indexOf(v);
+		int child = (pos * 2) + 1;
+		if (!(heap.get(child) == null && heap.get(child + 1) == null)) {
+			
+		} else {
+			heap.remove(pos);
+		}
+	}
+
 	public static void main(String[] args) {
 		String[] fruits = {
 			"kiwi",
