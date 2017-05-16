@@ -1,13 +1,13 @@
-#Priority Queue
-###Def.                 
+# Priority Queue
+### Def.                 
 A **priority queue** is an abstract data type for storing a collection of prioritized elements that supports arbitrary element insertion but supports removal of elements in order of priority, that is, the element with first priority can be removed at any time.
 
-###Applications:                               
+### Applications:                               
 1. Boarding an airplane. First class has the highest priority than parents with small children, etc...
 2. Emergency room waiting list
 3. Print jobs, administrators before teachers, teachers before students.
 
-###Java Collections PriorityQueue < E >                                   
+### Java Collections PriorityQueue < E >                                   
 Java provides a PriorityQueue < E > that utilizes a head to store the data.
 
 To use it, you need to import java.util.PriorityQueue
@@ -28,7 +28,7 @@ A priority Queue needs a comparison rule to determine the priority of removal.
 For integers, the smallest entry has the highest priority.            
 Strings use lexiographic ordering. "a" before "b", etc...
 
-###Demo.java                                     
+### Demo.java                                     
 ```
 import java.util.PriorityQueue;
 
@@ -55,7 +55,7 @@ public class Demo {
 }
 ```
 
-###Implement Priority Sort                           
+### Implement Priority Sort                           
 ```
 public static void pqSort(String[] list) {
 	PriorityQueue < String > temp = new PriorityQueue < String > ();
@@ -74,20 +74,20 @@ public static void pqSort(String[] list) {
 **On what order is the additional memory required for the pqSort?**                
 `O(n)`
 
-#Heaps                         
-###Def.                    
+# Heaps                         
+### Def.                    
 A **full binary tree** is a tree in which every node other than the leaves have two children.
 
-###Def.                            
+### Def.                            
 A binary tree is a **complete binary tree** if the binary tree (excluding the last level) is completely filled, and on the last level all the leaves are as far left as possible.
 
-###Def.                    
+### Def.                    
 A **heap** is a complete binary tree in which each parent node is less than (greater than) or equal to each of its children.
 
-###Heap implementation                            
+### Heap implementation                            
 Heaps can be implemented by using an ArrayList where the root of the heap is at index 0 and the children of the parent at index i reside at indices 2i + 1 (left child) and 2i + 2 (right child).
 
-###Heap Insertion Algorithm                       
+### Heap Insertion Algorithm                       
 Assumes the minimum value is at the root.
 
 Steps to add v from the heap:
@@ -96,7 +96,7 @@ Steps to add v from the heap:
 3. Otherwise, swap v with its parent.
 4. Go to step 2.
 
-###Heap Removal Algorithm
+### Heap Removal Algorithm
 Assume the minimum value is at the root and all removals occur at the root.
 
 Steps to remove v from the heap:
