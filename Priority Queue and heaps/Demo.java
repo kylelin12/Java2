@@ -3,7 +3,15 @@ import java.util.PriorityQueue;
 public class Demo {
 
 	// sorts the list in nondecreasing order by using a priority queue
-	public static void pqSort(String[] list) {}
+	public static void pqSort(String[] list) {
+		PriorityQueue < String > temp = new PriorityQueue < String > ();
+		for (String item: list) {
+			temp.add(item);
+		}
+		for (int i = 0; i < list.length; i++) {
+			list[i] = temp.poll();
+		}
+	}
 
 	public static void main(String[] args) {
 		String[] fruits = {
