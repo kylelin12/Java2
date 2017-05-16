@@ -86,3 +86,12 @@ A **heap** is a complete binary tree in which each parent node is less than (gre
 
 ###Heap implementation                            
 Heaps can be implemented by using an ArrayList where the root of the heap is at index 0 and the children of the parent at index i reside at indices 2i + 1 (left child) and 2i + 2 (right child).
+
+###Heap Insertion Algorithm                       
+Assumes the minimum value is at the root.
+
+Steps to add v from the heap:
+1. add v as a leaf. (Make sure the tree is complete.)
+2. If v is at the root or is greater than or equal to its parent then STOP.
+3. Otherwise, swap v with its parent.
+4. Go to step 2.
