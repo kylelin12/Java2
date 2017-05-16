@@ -95,3 +95,11 @@ Steps to add v from the heap:
 2. If v is at the root or is greater than or equal to its parent then STOP.
 3. Otherwise, swap v with its parent.
 4. Go to step 2.
+
+###Heap Removal Algorithm
+Assume the minimum value is at the root and all removals occur at the root.
+
+Steps to remove v from the heap:
+1. If v is a leaf remove the leaf (stop).
+2. Swap v with its smallest child.
+3. Go to 1.
