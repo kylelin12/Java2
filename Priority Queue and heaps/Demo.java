@@ -14,25 +14,27 @@ public class Demo {
 	}
 	
 	public static void add(int v, ArrayList < Integer > heap) {
-		heap.add(v);
-		int pos = heap.size() - 1;
-		int parent;
-		while (pos > 0) {
-			parent = (pos - 1) / 2;
-			if (heap.get(parent) > heap.get(pos))
-				heap.set(pos, heap.set(parent, heap.get(pos)));
-			else
-				break;
+		if (heap.size() == 1) heap.remove(0);
+		else {
+			int pos = heap.indexOf(v);
+			heap.set(heap.size() - 1, heap.set(pos, heap.get(heap.size() - 1);
+			heap.remove(heap.size() - 1);
+			int child = (pos * 2) + 1;
+			while (heap.get(child) != null && heap.get(child + 1) != null) {
+				int minChild = Math.min(heap.get(child), heap.get(child + 1));
+				if (heap.get(pos) > heap.get(minChild)) {
+					heap.set(pos, heap.set(minChild, heap.get(pos)));
+				}	
+			}
 		}
 	}
 
 	public static void remove(int v, ArrayList < Integer > heap) {
 		int pos = heap.indexOf(v);
 		int child = (pos * 2) + 1;
-		if (!(heap.get(child) == null && heap.get(child + 1) == null)) {
-			
-		} else {
-			heap.remove(pos);
+		if (heap.get(child) == null && heap.get(child + 1) == null) return;
+		else {
+			heap.set(pos, heap.set(child, heap.get(pos)));
 		}
 	}
 

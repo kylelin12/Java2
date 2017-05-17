@@ -105,3 +105,6 @@ Steps to remove v from the heap:
 3. If x is a leaf or x <= its children then stop.
 4. Swap x with its smallest child.
 5. Goto step 3.
+
+### Comparator Interface
+For a general and reusable form of a priority queue, we should not rely on the 
