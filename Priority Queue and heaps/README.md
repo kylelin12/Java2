@@ -100,6 +100,8 @@ Steps to add v from the heap:
 Assume the minimum value is at the root and all removals occur at the root.
 
 Steps to remove v from the heap:
-1. If v is a leaf remove the leaf (stop).
-2. Swap v with its smallest child.
-3. Go to 1.
+1. If the size of the heap is 1 then remove v and stop.
+2. Remove the rightmost child of the last level, x, then replace v with x.
+3. If x is a leaf or x <= its children then stop.
+4. Swap x with its smallest child.
+5. Goto step 3.
