@@ -3,7 +3,7 @@ import java.util.Comparator;
 
 public class PQHeap < K,V > implements PriorityQueue < K,V > {
 
-	private ArrayList < MyEntry < K,V >> _heap;
+	private ArrayList < Entry < K,V >> _heap;
 	private Comparator < K > _c;
 
 	// private inner class
@@ -31,12 +31,13 @@ public class PQHeap < K,V > implements PriorityQueue < K,V > {
 	// ******** Question 1 ****************************
 	// uses a default Comparator.
 	public PQHeap() {
-		PQHeap(new Comparator < K > ());
+		_heap = new ArrayList < Entry < K,V >>();
+		_c = new DefaultComparator < K > ();
 	}
 
 	// *******  Question 2 *****************************
 	public PQHeap(Comparator < K > c) {
-		_heap = new ArrayList < MyEntry < K,V >>();
+		_heap = new ArrayList < Entry < K,V >>();
 		_c = c;
 	}
 
@@ -48,22 +49,29 @@ public class PQHeap < K,V > implements PriorityQueue < K,V > {
 	// pre: adds the key-value pair to the heap
 	// post: 
 	public void add(K key, V value) {
-		_heap.add(key, value);
+		if (_heap.size() == 0)
+			_heap.add(new MyEntry < K,V > (key, value));
+		else {
+			int i = 0;
+			while (_c.compare(_heap.get(i).getKey(), key) < 0)
+				i++;
+			_heap.add(i, new MyEntry < K,V > (key, value));
+		}
 	}
 
 	// NEEDS TO BE COMPLETED
 	// O(logN)
 	public Entry < K,V > removeMin() {
-		Entry ans = _heap.get(0);
-		int x = _heap.remove(_heap.size() - 1);
+		Entry < K,V > ans = _heap.get(0);
+		Entry < K,V > x = _heap.remove(_heap.size() - 1);
 		if (_heap.size() > 0) {
 			_heap.set(0, x);
 			int pos = 0;
 			int mcPos = minChildPos(pos);
-			while (mcPos != -2) {
-				if (_heap.get(pos) < _heap.get(mcPos))
+			while (mcPos != -1) {
+				if (_c.compare(_heap.get(pos).getKey(),(_heap.get(mcPos).getKey())) < 0)
 					break;
-				_heap.set(pos, heap.set(mcPos, heap.get(pos)));
+				_heap.set(pos, _heap.set(mcPos, _heap.get(pos)));
 				pos = mcPos;
 				mcPos = minChildPos(pos);
 			}
@@ -77,7 +85,7 @@ public class PQHeap < K,V > implements PriorityQueue < K,V > {
 		int childL = pos * 2 + 1;
 		int childR = childL + 1;
 		if (childL >= _heap.size()) return -1;
-		if (childR >= _heap.size() || _heap.get(childL) >= _heap.get(childR)) return childL;
+		if (childR >= _heap.size() || _c.compare(_heap.get(childL).getKey(),(_heap.get(childR).getKey())) <= 0) return childL;
 		return childR;
 	}
 
@@ -103,6 +111,10 @@ public class PQHeap < K,V > implements PriorityQueue < K,V > {
 		pq.add(1, "watermelon");
 
 		System.out.println(pq);
+		
+		while (!pq.isEmpty()) {
+			System.out.println(pq.removeMin());
+		}
 		// [{1 : apple}, {1 : banana}, {1 : watermelon},
 		// {5 : kiwi}, {2 : orange}, {3 : cantalope}, {2 : grapes}]
 
