@@ -32,7 +32,7 @@ What if the keys are 3, 4, 8, and 10?
 
 4 and 8 hash to the same position. They are said to be synnyms and the result is termed a collision.
 
-One of the goals of developing a hashing function hould be to reduce the numbr of collisions as much as possible.
+One of the goals of developing a hashing function hould be to reduce the number of collisions as much as possible.
 
 ---
 
