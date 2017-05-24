@@ -5,56 +5,68 @@ public class HashTable {
 	
 	public HashTable(int size) {
 		_table = new Integer [size];
-		_tableSize = size;
+		_tableSize = 0;
 	}
 	
-	public int hash(Integer key) {
-		return key % _tableSize;
+	public int hash(int key) {
+		return key % _table.length;
 	}
 	
-	public boolean find(Integer key) {
-		int pos = hash(key);
-		if (_table[pos].equals(key)) {
-			return true;
-		} else {
-			for (int i = 0; i < table.length; i++) {
-				int tempPos = pos + i;
-				tempPos = tempPos % table.length;
-				if (_table[tempPos].equals(key))
-					return true;
-			}
-			return false;
+	public int find(int key) {
+		int i = hash(key);
+		if (_table[i] == null)
+			return -1;
+		for (int j = 0; j < _table.length; j++) {
+			int tempPos = i + j;
+			if (_table[tempPos] == key)
+				return tempPos;
 		}
+		return -1;
 	}
 	
-	public void add(Integer key) {
-		int pos = hash(key);
-		if (_table[pos] != null) {
-			_table[pos] = key;
-		} else {
-			for (int i = 0; i < table.length; i++) {
-				int tempPos = pos + i;
-				tempPos = tempPos % table.length;
-				if (_table[tempPos] == null)
-					_table[tempPos] = key;
-			}
+	public void add(int key) {
+	/*	if (_size >= _table.length) {
+			resize();
+			rehash();
+		}*/
+		int i = hash(key);
+		while (_table[i] != null) {
+			i = (i + 1) % _table.length;
 		}
+		_table[i] = key;
+		_tableSize++;
 	}
 	
-	public void remove(Integer key) {
-		int pos = hash(key);
-		if (_table[pos].equals(key)) {
+	public void remove(int key) {
+		int pos = find(key);
+		if (pos == -1) return;
+		else {
 			_table[pos] = null;
-			return;
-		} else {
-			for (int i = 0; i < table.length; i++) {
-				int tempPos = pos + i;
-				tempPos = tempPos % table.length;
-				if (_table[tempPos].equals(key)) {
-					_table[tempPos] = null;
-					break;
-				}
-			}
+			_tableSize--;
 		}
+	}
+	
+	public String toString() {
+		String ans = "[ ";
+		for (int i = 0; i < _table.length; i++) {
+			if (_table[i] != null)
+				ans += _table[i] + " ";
+			else
+				ans += "* ";
+		}
+		ans += "]";
+		return ans;
+	}
+	
+	public static void main(String[] args) {
+		HashTable table = new HashTable(10);
+		int[] array = {13, 66, 60, 76, 76, 27, 79, 81};
+		for (int x: array)
+			table.add(x);
+		System.out.println(table.toString());
+		table.remove(76);
+		System.out.println(table.toString());
+		table.remove(76);
+		System.out.println(table.toString());
 	}
 }
